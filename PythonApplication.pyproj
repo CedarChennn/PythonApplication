@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>f0e4a9dd-fa0d-49c3-b824-307af0fceaf1</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>MyStack.py</StartupFile>
+    <StartupFile>PythonApplication.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
