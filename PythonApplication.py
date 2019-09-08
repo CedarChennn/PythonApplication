@@ -1,4 +1,3 @@
-
 import random
 def isValid(self, s):
     """
@@ -34,6 +33,28 @@ def isValid(self, s):
     # In the end, if the stack is empty, then we have a valid expression.
     # The stack won't be empty for cases like ((()
     return not stack
+def threeSum(self, nums: [int]) -> [[int]]:
+    nums.sort()
+    res, k = [], 0
+    for k in range(len(nums) - 2):
+        if nums[k] > 0: break # 1. because of j > i > k.
+        if k > 0 and nums[k] == nums[k - 1]: continue # 2. skip the same `nums[k]`.
+        i, j = k + 1, len(nums) - 1
+        while i < j: # 3. double pointer
+            s = nums[k] + nums[i] + nums[j]
+            if s < 0:
+                i += 1
+                while i < j and nums[i] == nums[i - 1]: i += 1
+            elif s > 0:
+                j -= 1
+                while i < j and nums[j] == nums[j + 1]: j -= 1
+            else:
+                res.append([nums[k], nums[i], nums[j]])
+                i += 1
+                j -= 1
+                while i < j and nums[i] == nums[i - 1]: i += 1
+                while i < j and nums[j] == nums[j + 1]: j -= 1
+        return res
 def quiclsort(numbers):
     if len(numbers) <= 1:
            return numbers
@@ -47,6 +68,8 @@ def quiclsort(numbers):
         else:
             right.append(li)
     return quiclsort(left) + mid + quiclsort(right)
+def dailyTemperatures(self, T: List[int]) -> List[int]:
+    pass
 def main():
     mapping = {")": "(", "}": "{", "]": "["}
     for char in mapping:
