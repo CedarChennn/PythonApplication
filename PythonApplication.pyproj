@@ -4,8 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>f0e4a9dd-fa0d-49c3-b824-307af0fceaf1</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>
-    </StartupFile>
+    <StartupFile>PythonApplication.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -22,7 +21,13 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="MyStack.py">
+    <Compile Include="my_algorithm.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="my_data_structure.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="my_leetcode.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="PythonApplication.py" />
@@ -32,6 +37,9 @@
     <Compile Include="text.py">
       <SubType>Code</SubType>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="README.md" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
