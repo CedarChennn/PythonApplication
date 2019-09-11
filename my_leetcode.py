@@ -54,3 +54,13 @@ def threeSum(self, nums: [int]) -> [[int]]:
                 while i < j and nums[i] == nums[i - 1]: i += 1
                 while i < j and nums[j] == nums[j + 1]: j -= 1
         return res
+
+def evalRPN_150(self, tokens: List[str]) -> int:
+    stack = []
+    for i in tokens:
+        if i in ["+", "-", "*", "/"]:
+            a,b = stack.pop(),stack.pop()
+            stack.append(str(int(eval(b + i + a))))
+        else:
+            stack.append(i)
+    return stack[-1]
