@@ -54,7 +54,28 @@ def threeSum(self, nums: [int]) -> [[int]]:
                 while i < j and nums[i] == nums[i - 1]: i += 1
                 while i < j and nums[j] == nums[j + 1]: j -= 1
         return res
+def cloneGraph_133(self, node: 'Node') -> 'Node':
+#
+#definition for a node.
+#class node:
+#    def __init__(self, val, neighbors):
+#        self.val = val
+#        self.neighbors = neighbors
+#
+        lookup = {}
+        def dfs(node):
+            #print(node.val)
+            if not node: return
+            if node in lookup:
+                return lookup[node]
+            clone = Node(node.val, [])
+            lookup[node] = clone
+            for n in node.neighbors:
+                clone.neighbors.append(dfs(n))
+            
+            return clone
 
+        return dfs(node)
 def evalRPN_150(self, tokens: List[str]) -> int:
     stack = []
     for i in tokens:
