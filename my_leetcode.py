@@ -85,3 +85,11 @@ def evalRPN_150(self, tokens: List[str]) -> int:
         else:
             stack.append(i)
     return stack[-1]
+
+def findTargetSumWays(self, nums: List[int], S: int) -> int:   #unknow
+        d = {}
+        def dfs(i, cur, d):
+            if i < len(nums) and (i, cur) not in d: # 搜索周围节点
+                d[(i, cur)] = dfs(i + 1, cur + nums[i], d) + dfs(i + 1, cur - nums[i], d)
+            return d.get((i, cur), int(cur == S))   
+        return dfs(0, 0, d)
