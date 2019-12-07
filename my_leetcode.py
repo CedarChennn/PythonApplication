@@ -93,3 +93,53 @@ def findTargetSumWays(self, nums: List[int], S: int) -> int:   #unknow
                 d[(i, cur)] = dfs(i + 1, cur + nums[i], d) + dfs(i + 1, cur - nums[i], d)
             return d.get((i, cur), int(cur == S))   
         return dfs(0, 0, d)
+
+
+def lengthOfLongestSubstring(self, s: str) -> int:
+    if not s:return 0
+    n = len(s)
+    cur_len = 0
+    max_len=0
+    left=0
+    lookup=set()
+    for i in range(n):
+        cur_len+=1
+        while(s[i] in lookup):
+            lookup.remove(s[left])
+            left+=1
+            cur_len-=1
+        if(cur_len>max_len):
+            max_len=cur_len
+        lookup.add(s[i])
+    return max_len
+
+def topKFrequent(nums,k):
+    dic={}
+    for i in nums:
+        dic[i]=dic.get(i,0)+1
+    res=[]
+    for i in sorted(dic.items(),key =lambda dic:dic[1],reverse=True):
+        k=k-1
+        res.append(i[0])
+        if(k==0):
+            break
+    return res
+
+
+def search(nums,target):
+    end=len(nums)-1
+    start=0
+    while(start<end-1):
+        mid=start+(end-start)//2
+        if(nums[mid]==target):
+            return mid
+        if(nums[mid]>target):
+            end=mid
+        if(nums[mid]<target):
+            start=mid
+    if(nums[start]==target):
+        return start
+    if(nums[end]==target):
+        return end
+    return -1
+

@@ -15,10 +15,29 @@ def cloneGraph(self, node: 'Node') -> 'Node':
 
         return dfs(node)
 
+def numJewelsInStones( J, S):
+    d={}
+    for i in J:
+        d[i]=0
+    for i in S:
+        if i in d.keys():
+            d[i]+=1
+        
+    res=0
+    for i in d.values():
+        res+=i
+        print(res)
+    return i
 
+
+
+
+def main():
+    print(numJewelsInStones("aA","aAAbbbb"))
 
 
 
 
 if __name__ == "__main__":
-    print("hello")
+    main()
+    
